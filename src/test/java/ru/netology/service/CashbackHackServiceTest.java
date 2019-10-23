@@ -31,12 +31,11 @@ class CashbackHackServiceTest {
     }
 
     @Test
-    void test_should_suggest_when_sum_is_zero() {
-        //when
-        int upsellAmount = cashbackHackService.remain(0);
-
-        //then
-        Assertions.assertEquals(1000, upsellAmount);
+    void test_should_not_suggest_when_sum_is_zero() {
+        //when //then
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            cashbackHackService.remain(0);
+        });
     }
 
     @Test
